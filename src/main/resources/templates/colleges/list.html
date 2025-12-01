@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{layout :: layout}">
+    <div th:fragment="content">
+
+        <h1>Colleges</h1>
+
+        <table border="1" cellpadding="6">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Code</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${colleges}">
+                <td th:text="${c.id}"></td>
+                <td th:text="${c.code}"></td>
+                <td th:text="${c.name}"></td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <a th:href="@{/colleges/new}">Add College</a>
+
+    </div>
+</div>
+</html>

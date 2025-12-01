@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+
+<div class="container">
+
+    <h2>Branches</h2>
+
+    <a href="/branches/new" class="btn btn-success mb-3">Add Branch</a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>College</th>
+                <th>Branch</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="b : ${branches}">
+                <td th:text="${b.college.name}"></td>
+                <td th:text="${b.name}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</html>

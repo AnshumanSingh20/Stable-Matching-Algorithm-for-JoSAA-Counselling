@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+
+<div class="container">
+    <h2>Preferences for: <span th:text="${candidate.name}"></span></h2>
+
+    <a th:href="@{'/preferences/candidate/' + ${candidate.id} + '/new'}"
+       class="btn btn-primary mb-3">Add Preference</a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Priority</th>
+                <th>Branch</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p : ${preferences}">
+                <td th:text="${p.priority}"></td>
+                <td th:text="${p.branch.name}"></td>
+                <td>
+                    <a th:href="@{'/preferences/delete/' + ${p.id}}"
+                       class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</html>

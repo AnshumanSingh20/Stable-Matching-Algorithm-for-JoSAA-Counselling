@@ -1,0 +1,32 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{layout :: layout}">
+    <div th:fragment="content">
+
+        <h1>Add New College</h1>
+
+        <form th:action="@{/colleges/create}" th:object="${college}" method="post">
+
+            <div>
+                <label>Code:</label><br>
+                <input type="text" th:field="*{code}" />
+            </div>
+
+            <br>
+
+            <div>
+                <label>Name:</label><br>
+                <input type="text" th:field="*{name}" />
+            </div>
+
+            <br>
+
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+</html>

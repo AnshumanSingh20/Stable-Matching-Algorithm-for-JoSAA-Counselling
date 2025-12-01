@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+
+<div class="container">
+
+    <h2>Seat Retention Choice</h2>
+
+    <p>
+        Candidate: <strong th:text="${allocation.candidate.name}"></strong><br>
+        Branch Allocated: <strong th:text="${allocation.branch.name}"></strong><br>
+        Round Number: <strong th:text="${allocation.roundNumber}"></strong>
+    </p>
+
+    <form th:action="@{/choices/submit}" method="post">
+
+        <input type="hidden" th:field="${allocation.id}">
+
+        <div class="mb-3">
+            <label class="form-label">Select Choice</label>
+
+            <select class="form-select" th:field="${allocation.choiceType}">
+                <option value="FREEZE">FREEZE - Keep this seat</option>
+                <option value="FLOAT">FLOAT - Try better branches</option>
+                <option value="SLIDE">SLIDE - Try better branches in same college</option>
+            </select>
+        </div>
+
+        <button class="btn btn-primary">Submit</button>
+    </form>
+
+</div>
+
+</html>

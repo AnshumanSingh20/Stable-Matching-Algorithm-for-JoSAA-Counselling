@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{layout :: layout}">
+    <div th:fragment="content">
+
+        <h1>Admin Dashboard</h1>
+
+        <p>Welcome to the JEE Seat Allocation System</p>
+
+        <h2>Management</h2>
+        <ul>
+            <li><a th:href="@{/candidates/}">Candidates</a></li>
+            <li><a th:href="@{/colleges/}">Colleges</a></li>
+            <li><a th:href="@{/branches/}">Branches</a></li>
+            <li><a th:href="@{/preferences/}">Preferences</a></li>
+            <li><a th:href="@{/allocations/}">Allocation Results</a></li>
+        </ul>
+
+        <h2>Run Allocation Round</h2>
+
+        <form th:action="@{/admin/run-round/1}" method="get">
+            <button type="submit">Run Round 1</button>
+        </form>
+
+        <br>
+
+        <form th:action="@{/admin/run-round/2}" method="get">
+            <button type="submit">Run Round 2</button>
+        </form>
+
+        <br>
+
+        <form th:action="@{/admin/run-round/3}" method="get">
+            <button type="submit">Run Round 3</button>
+        </form>
+
+    </div>
+</div>
+
+</html>

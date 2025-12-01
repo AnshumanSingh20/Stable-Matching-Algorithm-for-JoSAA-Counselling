@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+
+<div class="container">
+
+    <h2>Round <span th:text="${round}"></span> – Allocation Results</h2>
+
+    <a href="/allocations" class="btn btn-secondary mb-3">Back</a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Candidate Name</th>
+                <th>Branch</th>
+                <th>Status</th>
+                <th>Priority Used</th>
+                <th>Details</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="h : ${history}">
+                <td th:text="${h.candidate.name}"></td>
+                <td th:text="${h.branch.name}"></td>
+                <td th:text="${h.status}"></td>
+                <td th:text="${h.preferencePriority}"></td>
+                <td th:text="${h.allocationDetails}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</html>

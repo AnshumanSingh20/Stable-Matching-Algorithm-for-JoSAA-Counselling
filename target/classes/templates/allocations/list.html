@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+
+<div class="container">
+
+    <h2>Current Allocations</h2>
+
+    <!-- Quick link to Round Results -->
+    <a href="/allocations/round/1" class="btn btn-info mb-3">
+        View Round 1 Results
+    </a>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Candidate</th>
+                <th>Branch</th>
+                <th>Round</th>
+                <th>Priority</th>
+                <th>Choice Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="a : ${allocations}">
+                <td th:text="${a.candidate.name}"></td>
+                <td th:text="${a.branch.name}"></td>
+                <td th:text="${a.roundNumber}"></td>
+                <td th:text="${a.preferencePriority}"></td>
+                <td th:text="${a.choiceType}"></td>
+
+                <td>
+                    <a th:href="@{'/choices/' + ${a.id}}" class="btn btn-primary btn-sm">
+                        Choose Option
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</html>

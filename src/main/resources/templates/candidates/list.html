@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+
+<div class="container">
+
+    <h2>Candidates</h2>
+
+    <a href="/candidates/new" class="btn btn-success mb-3">Add Candidate</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Rank</th>
+                <th>Category</th>
+                <th>Gender</th>
+                <th>State</th>
+                <th>Preferences</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="c : ${candidates}">
+                <td th:text="${c.name}"></td>
+                <td th:text="${c.rank}"></td>
+                <td th:text="${c.category}"></td>
+                <td th:text="${c.gender}"></td>
+                <td th:text="${c.homeState}"></td>
+
+                <td>
+                    <a th:href="@{'/preferences/candidate/' + ${c.id}}" class="btn btn-primary btn-sm">
+                        View Preferences
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</html>

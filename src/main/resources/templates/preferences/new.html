@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: body">
+
+<div class="container">
+
+    <h2>Add Preference for <span th:text="${candidate.name}"></span></h2>
+
+    <form th:action="@{/preferences/save}" method="post">
+
+        <input type="hidden" th:field="${preference.candidate.id}">
+
+        <div class="mb-3">
+            <label class="form-label">Branch</label>
+            <select class="form-select" th:field="${preference.branch}">
+                <option th:each="b : ${branches}"
+                        th:value="${b}"
+                        th:text="${b.name}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Priority</label>
+            <input type="number" class="form-control" th:field="${preference.priority}">
+        </div>
+
+        <button class="btn btn-success">Save</button>
+    </form>
+
+</div>
+
+</html>
